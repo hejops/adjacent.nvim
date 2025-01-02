@@ -22,7 +22,23 @@ M.find = function()
 	builtin.find_files({
 		prompt_title = "Adjacent",
 		cwd = current_buffer_directory,
-		find_command = { "find", ".", "-maxdepth", tostring(level), "-type", "f" },
+		find_command = {
+			"find",
+			".",
+			"-maxdepth",
+			tostring(level),
+			"-type",
+			"f",
+			-- https://unix.stackexchange.com/a/365705
+			"-exec",
+			"grep",
+			"-I",
+			"-q",
+			".",
+			"{}",
+			";",
+			"-print",
+		},
 	})
 end
 
