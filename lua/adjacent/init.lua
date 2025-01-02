@@ -29,6 +29,7 @@ M.find = function()
 			tostring(level),
 			"-type",
 			"f",
+			-- exclude executable binary files, but still include executable text files
 			-- https://unix.stackexchange.com/a/365705
 			"-exec",
 			"grep",
@@ -36,7 +37,7 @@ M.find = function()
 			"-q",
 			".",
 			"{}",
-			"\\;",
+			";",
 			"-print",
 		},
 	})
