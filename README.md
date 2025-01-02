@@ -37,7 +37,9 @@ telescope.load_extension("adjacent")
 ```lua
 	extensions = {
 		adjacent = {
-			level = 1 -- default
+			-- default config
+			level = 1,
+			exclude_binary = false,
 		}
 	},
 ```
